@@ -22,4 +22,10 @@ export class FetchService
         })
             .then(respuesta => respuesta.json())
     }
+
+    buscar(id)
+    {
+        return fetch(`${this.urlServidor}/${id}`) 
+            .then(respuesta => respuesta.json()) 
+    }
 }

@@ -3,15 +3,17 @@ const service = new FetchService("http://localhost:8080/EmprInfRs_MachadoAngela/
 
 const templateTienda = document.querySelector("#tempTienda");
 const  divTiendas = document.querySelector("#tiendas");
-const formulario = document.querySelector("#addTienda");
-formulario.addEventListener('submit', addTienda);
+const formularioAdd = document.querySelector("#addTienda");
+formularioAdd.addEventListener('submit', addTienda);
+const formularioBuscar = document.querySelector("#buscarTienda");
+formularioBuscar.addEventListener('submit', buscarTienda);
 
 service.mostrar().then(mostrarTiendas);
 
 function mostrarTiendas(tiendas)
 {
     vaciarContenedor(divTiendas);
-    
+
     tiendas.forEach(tienda => {
         const divTienda = templateTienda.content.cloneNode(true);
 
@@ -26,7 +28,7 @@ function addTienda(event)
 {
     event.preventDefault(); //cancela su comportamiento por defecto
 
-    let inputs = [...formulario.querySelectorAll(`input[type="text"]`)];
+    let inputs = [...formularioAdd.querySelectorAll(`input[type="text"]`)];
     let validacion = inputs.map(validarCampo); //devulve true o false si el campo esta bien o mal
     
     if (validacion.some(v => !v)) //si hay algun falso salimos de lsa funcion
@@ -54,4 +56,32 @@ function vaciarContenedor(contenedor)
     {
         contenedor.removeChild(contenedor.firstChild);
     }
+}
+
+function buscarTienda(event)
+{
+    event.preventDefault();
+
+    let id = formularioBuscar.querySelector("input");
+
+    if (!validarCampo(id))
+        return;
+
+    service.buscar(id.value)
+        .then((tienda) => {
+            mostrarTiendas([tienda]);
+        })
+        .catch(() => {
+            sinResultados();
+        })
+}
+
+function sinResultados()
+{
+    vaciarContenedor(divTiendas);
+
+    let h2 = document.createElement("h2");
+    h2.textContent = "Tienda no encontrada";
+
+    divTiendas.appendChild(h2);
 }
