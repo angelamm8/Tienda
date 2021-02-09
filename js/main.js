@@ -1,5 +1,5 @@
-import {FetchService} from "./servicios/fetchService.js";
-const service = new FetchService("http://localhost:8080/EmprInfRs_MachadoAngela/webresourcesAngela/tienda");
+import TiendasService from "./servicios/jQueryService.js";
+const service = new TiendasService("http://localhost:8080/EmprInfRs_MachadoAngela/webresourcesAngela/tienda");
 
 const templateTienda = document.querySelector("#tempTienda");
 const  divTiendas = document.querySelector("#tiendas");

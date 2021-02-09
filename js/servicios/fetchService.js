@@ -1,4 +1,4 @@
-export class FetchService
+export default class FetchService
 {
     constructor(urlServidor)
     {
