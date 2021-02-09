@@ -11,10 +11,15 @@ export class FetchService
             .then(respuesta => respuesta.json()) 
     }
 
-    insertar()
+    insertar(tienda)
     {
-        fetch(this.urlServidor, {
-            method: 'POST'
+        return fetch(this.urlServidor, {
+            method: 'POST', 
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(tienda)
         })
+            .then(respuesta => respuesta.json())
     }
 }
