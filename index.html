@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
     <header>
@@ -12,22 +13,26 @@
     </header>
 
     <main>
+        <div id="newTienda">Nueva tienda</div>
         <form id="addTienda" novalidate>
-            <div class="nombre">
-                <label for="name">Nombre</label>
-                <input id="name" type="text" name="nombreTienda" required>
-            </div>
-            <div class="direccion">
-                <label for="address">Direccion</label>
-                <input id="address" type="text" name="direccion" required>
-            </div>
-            <div class="localidad">
-                <label for="locality">Localidad</label>
-                <input id="locality" type="text" name="localidad" required>
-            </div>
-            <div class="telefono">
-                <label for="phone">Teléfono</label>
-                <input id="phone" type="text" name="telefono" required>
+            <div id="newEmpresa">Nueva Empresa</div>
+            <div class="divForm">
+                <div class="nombre">
+                    <label for="name">Nombre</label>
+                    <input id="name" type="text" name="nombreTienda" required>
+                </div>
+                <div class="direccion">
+                    <label for="address">Direccion</label>
+                    <input id="address" type="text" name="direccion" required>
+                </div>
+                <div class="localidad">
+                    <label for="locality">Localidad</label>
+                    <input id="locality" type="text" name="localidad" required>
+                </div>
+                <div class="telefono">
+                    <label for="phone">Teléfono</label>
+                    <input id="phone" type="text" name="telefono" required>
+                </div>
             </div>
             <button type="submit">Añadir tienda</button>
         </form>
@@ -43,7 +48,6 @@
         <div class="tienda">
             <h2 class="nombreTienda"></h2>
             <div class="direccionTienda"></div>
-            <div class="localidadTienda"></div>
             <div class="telefonoTienda"></div>
         </div>
     </template>

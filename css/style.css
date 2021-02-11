@@ -1,0 +1,46 @@
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+}
+
+header {
+  background-color: #134013;
+  color: #f89b1f;
+  font-size: 40px;
+  text-align: center;
+  padding: 10px 0;
+}
+
+#newTienda {
+  color: #134013;
+  font-size: 20px;
+}
+
+#addTienda, .tienda {
+  border: 1px solid #134013;
+  border-radius: 10px;
+  padding: 10px;
+  margin: 10px;
+}
+
+.divForm {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+#newEmpresa {
+  color: #567f3d;
+  font-size: 30px;
+}
+
+.nombreTienda {
+  color: #134013;
+  font-size: 25px;
+}
+/*# sourceMappingURL=style.css.map */

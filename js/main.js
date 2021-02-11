@@ -18,6 +18,8 @@ function mostrarTiendas(tiendas)
         const divTienda = templateTienda.content.cloneNode(true);
 
         divTienda.querySelector(".nombreTienda").textContent = tienda.nombreTienda;
+        divTienda.querySelector(".direccionTienda").textContent = tienda.direccion + ` (${tienda.localidad})`;
+        divTienda.querySelector(".telefonoTienda").textContent = tienda.telefono;
 
         divTiendas.appendChild(divTienda);
         
