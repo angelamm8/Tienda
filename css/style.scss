@@ -29,6 +29,12 @@ header
     margin: 10px;
 }
 
+#newEmpresa
+{
+    color: rgb(86, 127, 61);
+    font-size: 30px;
+}
+
 .divForm
 {
     display: flex;
@@ -36,10 +42,12 @@ header
     justify-content: space-between;
 }
 
-#newEmpresa
+#btn-add, #btn-buscar
 {
-    color: rgb(86, 127, 61);
-    font-size: 30px;
+    border: 1.5px solid $verdeFuerte;
+    border-radius: 5px;
+    color: $verdeFuerte;
+    padding: 5px 8px;
 }
 
 .nombreTienda

@@ -8,6 +8,15 @@
     <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
+    <div id="selectServicio">
+        <div>
+            <h2>Elige el método para realizar AJAX:</h2>
+            <button type="button" id="xhr">XHR</button>
+            <button type="button" id="fetch">Fetch</button>
+            <button type="button" id="jQuery">jQuery</button>
+        </div>
+    </div>
+
     <header>
         Tiendas
     </header>
@@ -19,27 +28,31 @@
             <div class="divForm">
                 <div class="nombre">
                     <label for="name">Nombre</label>
-                    <input id="name" type="text" name="nombreTienda" required>
+                    <input id="name" type="text" name="nombreTienda" placeholder="Nombre de la empresa" required>
+                    <div class="error"></div>
                 </div>
                 <div class="direccion">
                     <label for="address">Direccion</label>
-                    <input id="address" type="text" name="direccion" required>
+                    <input id="address" type="text" name="direccion" placeholder="Dirección de la empresa" required>
+                    <div class="error"></div>
                 </div>
                 <div class="localidad">
                     <label for="locality">Localidad</label>
-                    <input id="locality" type="text" name="localidad" required>
+                    <input id="locality" type="text" name="localidad" placeholder="Localidad de la empresa" required>
+                    <div class="error"></div>
                 </div>
                 <div class="telefono">
                     <label for="phone">Teléfono</label>
-                    <input id="phone" type="text" name="telefono" required>
+                    <input id="phone" type="text" name="telefono" placeholder="Teléfono de la empresa" pattern="^(\(\+\d{2,3}\))?[6|8|9]\d{8}$" required>
+                    <div class="error"></div>
                 </div>
             </div>
-            <button type="submit">Añadir tienda</button>
+            <button type="submit" id="btn-add">Añadir tienda</button>
         </form>
 
         <form id="buscarTienda" novalidate>
             <input type="text" placeholder="ID de la Tienda" required>
-            <button type="submit">Buscar</button>
+            <button type="submit" id="btn-buscar">Buscar</button>
         </form>
         <div id="tiendas"></div>
 

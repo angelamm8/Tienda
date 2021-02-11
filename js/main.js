@@ -1,5 +1,5 @@
-import TiendasService from "./servicios/jQueryService.js";
-const service = new TiendasService("http://localhost:8080/EmprInfRs_MachadoAngela/webresourcesAngela/tienda");
+import TiendasService from "./servicios/xhrService.js";
+var service = new TiendasService("http://localhost:8080/EmprInfRs_MachadoAngela/webresourcesAngela/tienda");
 
 const templateTienda = document.querySelector("#tempTienda");
 const  divTiendas = document.querySelector("#tiendas");
@@ -46,9 +46,17 @@ function addTienda(event)
 
 function validarCampo(input)
 {
+    const divError = input.parentElement.querySelector(".error");
+    vaciarContenedor(divError);
+
     if (input.validity.valid)
         return true; //todo está bien
 
+    if (input.validity.valueMissing)
+        divError.textContent = "Este campo es obligatorio";
+    else if (input.validity.patternMismatch)
+        divError.textContent = "Formato incorrecto";
+    
     return false;
 }
 

@@ -23,6 +23,11 @@ header {
   margin: 10px;
 }
 
+#newEmpresa {
+  color: #567f3d;
+  font-size: 30px;
+}
+
 .divForm {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -34,9 +39,11 @@ header {
           justify-content: space-between;
 }
 
-#newEmpresa {
-  color: #567f3d;
-  font-size: 30px;
+#btn-add, #btn-buscar {
+  border: 1.5px solid #134013;
+  border-radius: 5px;
+  color: #134013;
+  padding: 5px 8px;
 }
 
 .nombreTienda {
