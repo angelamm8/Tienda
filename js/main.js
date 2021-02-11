@@ -1,14 +1,45 @@
-import TiendasService from "./servicios/xhrService.js";
-var service = new TiendasService("http://localhost:8080/EmprInfRs_MachadoAngela/webresourcesAngela/tienda");
-
+var service;
+const url = "http://localhost:8080/EmprInfRs_MachadoAngela/webresourcesAngela/tienda"
 const templateTienda = document.querySelector("#tempTienda");
 const  divTiendas = document.querySelector("#tiendas");
 const formularioAdd = document.querySelector("#addTienda");
 formularioAdd.addEventListener('submit', addTienda);
 const formularioBuscar = document.querySelector("#buscarTienda");
 formularioBuscar.addEventListener('submit', buscarTienda);
+const selectServicio = document.querySelector("#selectServicio");
+selectServicio.addEventListener("click", tipoServicio);
 
-service.mostrar().then(mostrarTiendas);
+function tipoServicio(event)
+{
+    const boton = event.target.closest("button");
+
+    if (!boton)
+        return;
+
+    switch (boton.id)
+    {
+        case "xhr":
+            cargarServicio("./servicios/xhrService.js");
+            break;
+        case "fetch":
+            cargarServicio("./servicios/fetchService.js");
+            break;
+        case "jQuery":
+            cargarServicio("./servicios/jQueryService.js");
+            break;
+    }
+
+    selectServicio.remove();
+}
+
+function cargarServicio(ruta)
+{
+    import(ruta).then(modulo => {
+        service = new modulo.default(url);
+        service.mostrar().then(mostrarTiendas);
+    });
+    
+}
 
 function mostrarTiendas(tiendas)
 {
