@@ -1,7 +1,6 @@
 body {
   font-family: Arial, Helvetica, sans-serif;
-  margin: 0;
-}
+  margin: 0; }
 
 #selectServicio {
   position: fixed;
@@ -11,62 +10,79 @@ body {
   width: 100vw;
   height: 100vh;
   background-color: white;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
+  justify-content: center;
+  align-items: center; }
+
+#selectServicio > div > h2 {
+  color: #134013; }
+
+#selectServicio > div > button {
+  border: 1.5px solid #134013;
+  border-radius: 5px;
+  color: #134013;
+  background-color: #daeecc;
+  padding: 5px 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 70%;
+  margin-bottom: 10px;
+  cursor: pointer;
+  outline: none; }
+
+#selectServicio > div > button:hover,
+#btn-add:hover, #btn-buscar:hover {
+  background-color: #bde1a6; }
+
+#selectServicio > div > button:active,
+#btn-add:active, #btn-buscar:active {
+  background-color: #134013;
+  color: #daeecc; }
 
 header {
   background-color: #134013;
   color: #f89b1f;
   font-size: 40px;
   text-align: center;
-  padding: 10px 0;
-}
+  padding: 10px 0; }
 
 #newTienda {
   color: #134013;
-  font-size: 20px;
-}
+  font-size: 20px; }
 
 #addTienda, .tienda {
   border: 1px solid #134013;
   border-radius: 10px;
   padding: 10px;
-  margin: 10px;
-}
+  margin: 10px; }
 
 #newEmpresa {
   color: #567f3d;
-  font-size: 30px;
-}
+  font-size: 30px; }
 
 .divForm {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-}
+  flex-wrap: wrap;
+  justify-content: space-between; }
+
+input {
+  border: 1.5px solid #134013;
+  border-radius: 5px;
+  outline: none; }
+
+small {
+  color: red; }
 
 #btn-add, #btn-buscar {
   border: 1.5px solid #134013;
   border-radius: 5px;
   color: #134013;
+  background-color: #daeecc;
   padding: 5px 8px;
-}
+  cursor: pointer;
+  outline: none; }
 
 .nombreTienda {
   color: #134013;
-  font-size: 25px;
-}
-/*# sourceMappingURL=style.css.map */
+  font-size: 25px; }

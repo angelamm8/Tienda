@@ -9,9 +9,14 @@
   "author": "angela",
   "license": "ISC",
   "devDependencies": {
-    "gulp": "^4.0.2"
+    "browser-sync": "^2.26.14",
+    "gulp": "^4.0.2",
+    "gulp-jsdoc3": "^3.0.0",
+    "gulp-sass": "^4.1.0",
+    "node-sass": "^5.0.0"
   },
   "dependencies": {
+    "gulp-eslint": "^6.0.0",
     "jquery": "^3.5.1"
   }
 }

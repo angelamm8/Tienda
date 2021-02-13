@@ -1,4 +1,6 @@
 $verdeFuerte: #134013;
+$verdeFlojo: #daeecc;
+$verdeMedio: #bde1a6;
 
 body
 {
@@ -18,6 +20,40 @@ body
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+#selectServicio > div > h2
+{
+    color: $verdeFuerte;
+}
+
+#selectServicio > div > button
+{
+    border: 1.5px solid $verdeFuerte;
+    border-radius: 5px;
+    color: $verdeFuerte;
+    background-color: $verdeFlojo;
+    padding: 5px 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 70%;
+    margin-bottom: 10px;
+    cursor: pointer;
+    outline: none;
+}
+
+#selectServicio > div > button:hover, 
+#btn-add:hover, #btn-buscar:hover
+{
+    background-color: $verdeMedio;
+}
+
+#selectServicio > div > button:active, 
+#btn-add:active, #btn-buscar:active
+{
+    background-color: $verdeFuerte;
+    color: $verdeFlojo;
 }
 
 header
@@ -56,12 +92,27 @@ header
     justify-content: space-between;
 }
 
+input
+{
+    border: 1.5px solid $verdeFuerte;
+    border-radius: 5px;
+    outline: none;
+}
+
+small
+{
+    color: red;
+}
+
 #btn-add, #btn-buscar
 {
     border: 1.5px solid $verdeFuerte;
     border-radius: 5px;
     color: $verdeFuerte;
+    background-color: $verdeFlojo;
     padding: 5px 8px;
+    cursor: pointer;
+    outline: none;
 }
 
 .nombreTienda

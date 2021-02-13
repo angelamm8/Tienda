@@ -1,5 +1,6 @@
 var service;
-const url = "http://localhost:8080/EmprInfRs_MachadoAngela/webresourcesAngela/tienda"
+//const url = "http://localhost:8080/EmprInfRs_MachadoAngela/webresourcesAngela/tienda"
+const url = "https://webapp-210130211157.azurewebsites.net/webresources/mitienda/";
 const templateTienda = document.querySelector("#tempTienda");
 const  divTiendas = document.querySelector("#tiendas");
 const formularioAdd = document.querySelector("#addTienda");
@@ -9,6 +10,11 @@ formularioBuscar.addEventListener('submit', buscarTienda);
 const selectServicio = document.querySelector("#selectServicio");
 selectServicio.addEventListener("click", tipoServicio);
 
+/**
+ * Comprueba el tipo de servicio para ejecutarlo
+ * @param {*} event 
+ * @returns void
+ */
 function tipoServicio(event)
 {
     const boton = event.target.closest("button");
