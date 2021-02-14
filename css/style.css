@@ -2,6 +2,9 @@ body {
   font-family: Arial, Helvetica, sans-serif;
   margin: 0; }
 
+main {
+  padding: 10px; }
+
 #selectServicio {
   position: fixed;
   z-index: 1;
@@ -12,7 +15,8 @@ body {
   background-color: white;
   display: flex;
   justify-content: center;
-  align-items: center; }
+  align-items: center;
+  text-align: center; }
 
 #selectServicio > div > h2 {
   color: #134013; }
@@ -23,9 +27,6 @@ body {
   color: #134013;
   background-color: #daeecc;
   padding: 5px 8px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
   width: 70%;
   margin-bottom: 10px;
   cursor: pointer;
@@ -47,15 +48,24 @@ header {
   text-align: center;
   padding: 10px 0; }
 
+#formularios {
+  margin: 10px 0;
+  display: flex;
+  justify-content: space-between; }
+
 #newTienda {
   color: #134013;
   font-size: 20px; }
 
+#divAddForm {
+  height: 0;
+  overflow: hidden;
+  transition: height 0.5s; }
+
 #addTienda, .tienda {
   border: 1px solid #134013;
   border-radius: 10px;
-  padding: 10px;
-  margin: 10px; }
+  padding: 10px; }
 
 #newEmpresa {
   color: #567f3d;
@@ -66,6 +76,15 @@ header {
   flex-wrap: wrap;
   justify-content: space-between; }
 
+.divForm > .campo {
+  margin: 4px 0;
+  width: calc(50% - 2.5px); }
+
+.campo input {
+  display: block;
+  width: 100%;
+  box-sizing: border-box; }
+
 input {
   border: 1.5px solid #134013;
   border-radius: 5px;
@@ -73,6 +92,9 @@ input {
 
 small {
   color: red; }
+
+#divBtnAdd {
+  text-align: right; }
 
 #btn-add, #btn-buscar {
   border: 1.5px solid #134013;
@@ -82,6 +104,9 @@ small {
   padding: 5px 8px;
   cursor: pointer;
   outline: none; }
+
+.tienda {
+  margin-top: 10px; }
 
 .nombreTienda {
   color: #134013;

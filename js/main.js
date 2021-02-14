@@ -9,6 +9,10 @@ const formularioBuscar = document.querySelector("#buscarTienda");
 formularioBuscar.addEventListener('submit', buscarTienda);
 const selectServicio = document.querySelector("#selectServicio");
 selectServicio.addEventListener("click", tipoServicio);
+let mostradoForm = false;
+const newTienda = document.querySelector("#newTienda");
+newTienda.addEventListener("click", mostrarOcultarForm);
+const divAddForm = document.querySelector("#divAddForm");
 
 /**
  * Comprueba el tipo de servicio para ejecutarlo
@@ -45,6 +49,21 @@ function cargarServicio(ruta)
         service.mostrar().then(mostrarTiendas);
     });
     
+}
+
+function mostrarOcultarForm()
+{
+    if (!mostradoForm)
+    {
+        let height = formularioAdd.offsetHeight;
+        divAddForm.style.height = `${height}px`;
+        mostradoForm = true;
+    }
+    else
+    {
+        divAddForm.style.height = `0px`;
+        mostradoForm = false;
+    }
 }
 
 function mostrarTiendas(tiendas)
