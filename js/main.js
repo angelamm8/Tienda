@@ -78,7 +78,12 @@ function addTienda(event)
         tienda[input.name] = input.value;
     });
 
-    service.insertar(tienda).then(mostrarTiendas);
+    service.insertar(tienda).then((ok) => {
+        if (ok)
+            service.mostrar().then(mostrarTiendas);
+        else
+            errorInsertar();
+    });
 }
 
 function validarCampo(input)
@@ -129,6 +134,16 @@ function sinResultados()
 
     let h2 = document.createElement("h2");
     h2.textContent = "Tienda no encontrada";
+
+    divTiendas.appendChild(h2);
+}
+
+function errorInsertar()
+{
+    vaciarContenedor(divTiendas);
+
+    let h2 = document.createElement("h2");
+    h2.textContent = "Error al insertar";
 
     divTiendas.appendChild(h2);
 }

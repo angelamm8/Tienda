@@ -20,7 +20,7 @@ export default class FetchService
             },
             body: JSON.stringify(tienda)
         })
-            .then(respuesta => respuesta.json())
+            .then(respuesta => respuesta.ok)
     }
 
     buscar(id)

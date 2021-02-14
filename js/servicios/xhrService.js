@@ -32,8 +32,12 @@ export default class xhrService
             oReq.addEventListener("load", () => {
                 try 
                 {
-                    let data = JSON.parse(oReq.responseText);
-                    resolve(data);
+                    if (oReq.status >= 200 && oReq.status <= 299)
+                        resolve(true);
+                    else 
+                        resolve(false);
+
+                    //resolve(oReq.status >= 200 && oReq.status <= 299);
                 }
                 catch (ex)
                 {

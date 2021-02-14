@@ -27,7 +27,8 @@ export default class jQueryService
                 type: "POST",
                 url: this.urlServidor,
                 data: JSON.stringify(tienda),
-                success: resolve,
+                success: () => resolve(true),
+                error: () => resolve(false),
                 contentType: 'application/json'
             })
         });
