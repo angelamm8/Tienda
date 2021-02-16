@@ -13,6 +13,9 @@ let mostradoForm = false;
 const newTienda = document.querySelector("#newTienda");
 newTienda.addEventListener("click", mostrarOcultarForm);
 const divAddForm = document.querySelector("#divAddForm");
+var busqueda = false;
+const btnBuscar = document.querySelector("#btn-buscar");
+btnBuscar.addEventListener("click", comprobarEstadoBusqueda);
 
 /**
  * Comprueba el tipo de servicio para ejecutarlo
@@ -46,9 +49,20 @@ function cargarServicio(ruta)
 {
     import(ruta).then(modulo => {
         service = new modulo.default(url);
-        service.mostrar().then(mostrarTiendas);
+        mostrarTodas();
     });
     
+}
+
+function mostrarTodas()
+{
+    showLoading();
+    service.mostrar()
+        .then(mostrarTiendas)
+        .catch(() => {
+            sinResultados("No se ha podido cargar el servicio");
+        })
+        .finally(hideLoading);
 }
 
 function mostrarOcultarForm()
@@ -82,8 +96,21 @@ function mostrarTiendas(tiendas)
     });
 }
 
+function showLoading()
+{
+    document.querySelector("#loading").classList.add("show");
+    divTiendas.style.display = "none";
+}
+
+function hideLoading()
+{
+    document.querySelector("#loading").classList.remove("show");
+    divTiendas.style.display = null;
+}
+
 function addTienda(event)
 {
+    const btnAdd = document.querySelector("#btn-add");
     event.preventDefault(); //cancela su comportamiento por defecto
 
     let inputs = [...formularioAdd.querySelectorAll(`input[type="text"]`)];
@@ -95,14 +122,23 @@ function addTienda(event)
     let tienda = {};
     inputs.forEach(input => {
         tienda[input.name] = input.value;
+        input.value = "";
     });
 
-    service.insertar(tienda).then((ok) => {
-        if (ok)
-            service.mostrar().then(mostrarTiendas);
-        else
-            errorInsertar();
-    });
+    btnAdd.disabled = true;
+    btnAdd.textContent = "Cargando...";
+
+    service.insertar(tienda)
+        .then((ok) => {
+            if (ok)
+                return service.mostrar().then(mostrarTiendas);
+            else
+                errorInsertar();
+        })
+        .finally( () => {
+            btnAdd.disabled = false;
+            btnAdd.textContent = "Añadir tienda";
+        } );
 }
 
 function validarCampo(input)
@@ -129,6 +165,19 @@ function vaciarContenedor(contenedor)
     }
 }
 
+function comprobarEstadoBusqueda(event)
+{
+    if (busqueda) 
+    {
+        mostrarTodas();
+        busqueda = false;
+        event.preventDefault(); //para q no se haga un envio del formulario
+        
+        btnBuscar.textContent = "Buscar";
+        formularioBuscar.querySelector("input").value = "";
+    }
+}
+
 function buscarTienda(event)
 {
     event.preventDefault();
@@ -138,21 +187,30 @@ function buscarTienda(event)
     if (!validarCampo(id))
         return;
 
+    showLoading();
+    busqueda = true;
+    
+    btnBuscar.textContent = "Cargando...";
+    
     service.buscar(id.value)
         .then((tienda) => {
             mostrarTiendas([tienda]);
         })
         .catch(() => {
-            sinResultados();
+            sinResultados("Tienda no encontrada");
         })
+        .finally(() => {
+            hideLoading();
+            btnBuscar.textContent = "X";
+        });
 }
 
-function sinResultados()
+function sinResultados(mensaje)
 {
     vaciarContenedor(divTiendas);
 
     let h2 = document.createElement("h2");
-    h2.textContent = "Tienda no encontrada";
+    h2.textContent = mensaje;
 
     divTiendas.appendChild(h2);
 }

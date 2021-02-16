@@ -1,6 +1,7 @@
 $verdeFuerte: #134013;
-$verdeFlojo: #daeecc;
 $verdeMedio: #bde1a6;
+$verdeFlojo: lighten($verdeMedio, 20%);
+$headerHeight: 50px;
 
 body
 {
@@ -11,21 +12,55 @@ body
 main
 {
     padding: 10px;
+    position: relative;
+    min-height: calc(100vh - #{$headerHeight});
 }
 
-#selectServicio
-{
-    position: fixed;
+@mixin divPantallaCompleta($fondoColor) {
+    position: absolute;
     z-index: 1;
     top: 0;
     left: 0;
-    width: 100vw;
-    height: 100vh;
-    background-color: white;
+    width: 100%;
+    height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
+    background-color: $fondoColor;
+}
+
+#selectServicio
+{
+    @include divPantallaCompleta(white);
+}
+
+#loading
+{
+    @include divPantallaCompleta(rgb(192, 192, 192));
+    display: none;
+    &.show
+    {
+        display: flex;
+    }
+
+    img 
+    {
+        animation: spin 1.5s linear infinite;
+    }
+}
+
+@keyframes spin
+{
+    0% 
+    {
+        transform: rotate(0deg);
+    }
+    
+    100%
+    {
+        transform: rotate(360deg);
+    }
 }
 
 #selectServicio > div > h2
@@ -44,6 +79,7 @@ main
     margin-bottom: 10px;
     cursor: pointer;
     outline: none;
+
 }
 
 #selectServicio > div > button:hover, 
@@ -65,7 +101,8 @@ header
     color: #f89b1f;
     font-size: 40px;
     text-align: center;
-    padding: 10px 0;
+    padding: 5px 0;
+    height: $headerHeight;
 }
 
 #formularios

@@ -8,20 +8,24 @@
     <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
-    <div id="selectServicio">
-        <div>
-            <h2>Elige el método para realizar AJAX:</h2>
-            <button type="button" id="xhr">XHR</button>
-            <button type="button" id="fetch">Fetch</button>
-            <button type="button" id="jQuery">jQuery</button>
-        </div>
-    </div>
-
     <header>
         Tiendas
     </header>
 
     <main>
+        <div id="selectServicio">
+            <div>
+                <h2>Elige el método para realizar AJAX:</h2>
+                <button type="button" id="xhr">XHR</button>
+                <button type="button" id="fetch">Fetch</button>
+                <button type="button" id="jQuery">jQuery</button>
+            </div>
+        </div>
+
+        <div id="loading">
+            <img src="./img/loading.svg">
+        </div>
+
         <div id="formularios">
             <button type="button" id="newTienda">Nueva tienda</button>
     
