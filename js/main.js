@@ -173,7 +173,7 @@ function comprobarEstadoBusqueda(event)
         busqueda = false;
         event.preventDefault(); //para q no se haga un envio del formulario
         
-        btnBuscar.textContent = "Buscar";
+        btnBuscar.innerHTML = `<span class="oi oi-magnifying-glass"></span>`;
         formularioBuscar.querySelector("input").value = "";
     }
 }

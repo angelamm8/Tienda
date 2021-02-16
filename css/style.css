@@ -20,6 +20,12 @@ main {
   text-align: center;
   background-color: white; }
 
+@keyframes spin {
+  0% {
+    transform: rotate(0deg); }
+  100% {
+    transform: rotate(360deg); } }
+
 #loading {
   position: absolute;
   z-index: 1;
@@ -37,12 +43,6 @@ main {
     display: flex; }
   #loading img {
     animation: spin 1.5s linear infinite; }
-
-@keyframes spin {
-  0% {
-    transform: rotate(0deg); }
-  100% {
-    transform: rotate(360deg); } }
 
 #selectServicio > div > h2 {
   color: #134013; }
@@ -82,7 +82,11 @@ header {
 
 #newTienda {
   color: #134013;
-  font-size: 20px; }
+  font-size: 20px;
+  border: none;
+  background-color: white;
+  outline: none;
+  cursor: pointer; }
 
 #divAddForm {
   height: 0;
@@ -133,7 +137,8 @@ small {
   outline: none; }
 
 .tienda {
-  margin-top: 10px; }
+  margin-top: 10px;
+  box-shadow: 0px 0px 10px 0.2px #134013; }
 
 .nombreTienda {
   color: #134013;
